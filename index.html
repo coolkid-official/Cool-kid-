@@ -3,167 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite VIP Registration</title>
+<title>Elite VIP Ultra-Premium Dashboard</title>
+<meta name="description" content="Join Elite VIP Fixed Odds Registration – 359+ Odds Guaranteed. Contact +254113206503 on WhatsApp for registration.">
+
 <style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #eef2f7;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-.container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-h1 { text-align: center; color: #2a9d8f; margin-bottom: 10px; font-size: 32px; }
-.vip-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #FFD700, #FFC700);
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 8px 15px;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
-    text-align: center;
-}
-.nav-steps {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-.nav-steps button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s, background 0.3s;
-}
-.nav-steps button:hover {
-    transform: scale(1.1);
-}
-.nav-step1 { background-color: #2a9d8f; color: #fff; }
-.nav-step2 { background-color: #e76f51; color: #fff; }
-.nav-step3 { background-color: #264653; color: #fff; }
+/* Base */
+body, html {margin:0; padding:0; font-family:'Arial', sans-serif; scroll-behavior:smooth; background: linear-gradient(-45deg,#f0f4f8,#d9e2ec,#cde1f2,#e2f0fc); background-size:400% 400%; animation:gradient 20s ease infinite; color:#333;}
+@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.container{max-width:900px;margin:30px auto;padding:30px;background:#fff;border-radius:20px;box-shadow:0 12px 35px rgba(0,0,0,0.25);}
+h1{text-align:center;font-size:38px;color:#2a9d8f;margin-bottom:10px; text-transform: uppercase; letter-spacing:1px;}
+.vip-badge{display:inline-block;background: linear-gradient(135deg,#FFD700,#FFC700); color:#fff; font-weight:bold; font-size:20px; padding:12px 30px; border-radius:60px; box-shadow:0 5px 20px rgba(0,0,0,0.4); margin-bottom:25px;}
 
-h2 { margin-top: 0; }
-p { font-size: 16px; margin: 10px 0; }
-.step {
-    display: flex;
-    align-items: flex-start;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px 0;
-    color: #fff;
-    position: relative;
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.8s ease;
-}
-.step.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-.step-number { font-size: 26px; font-weight: bold; margin-right: 15px; }
-.step-content { flex: 1; }
-.step1 { background-color: #2a9d8f; }
-.step2 { background-color: #e76f51; }
-.step3 { background-color: #264653; }
-ul { margin: 10px 0 0 20px; padding: 0; }
-li { margin: 5px 0; position: relative; padding-left: 25px; cursor: pointer; }
-li::before {
-    content: "✅";
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.3s ease;
-}
-li.completed::before { opacity: 1; transform: scale(1); }
-.whatsapp-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin: 20px 0;
-    padding: 18px 0;
-    background-color: #25D366;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: transform 0.2s, background 0.3s;
-}
-.whatsapp-btn:hover { background-color: #1ebe5d; transform: scale(1.05); }
-.progress-container { background-color: #dcdcdc; border-radius: 12px; overflow: hidden; margin: 30px 0; }
-.progress-bar { height: 14px; width: 0; background-color: #2a9d8f; transition: width 0.5s; }
-iframe { width: 100%; height: 500px; border: none; margin-top: 20px; border-radius: 10px; }
-footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
+/* Navigation Steps */
+.nav-steps{display:flex;justify-content:space-around;margin-bottom:20px;position: sticky; top:0; background:#fff; padding:15px 0; z-index:100; box-shadow:0 5px 25px rgba(0,0,0,0.15); border-radius:15px;}
+.nav-steps button{padding:15px 30px; border:none; border-radius:60px; cursor:pointer; font-weight:bold; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.nav-steps button:hover{transform:scale(1.1);}
+.nav-step1{background-color:#2a9d8f;color:#fff;}
+.nav-step2{background-color:#e76f51;color:#fff;}
 
-/* Popup Styles */
-#vip-popup {
-    display: none;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #FFD700;
-    color: #333;
-    padding: 25px 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    font-size: 22px;
-    font-weight: bold;
-    z-index: 1000;
-    text-align: center;
-}
-#vip-popup.show { display: block; animation: popup 0.5s ease forwards; }
-@keyframes popup {
-    0% { transform: translate(-50%, -60%) scale(0.5); opacity: 0; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-}
+/* Steps */
+.step{display:flex; flex-direction:column;border-radius:20px;padding:35px;margin:25px 0;color:#fff;opacity:0; transform:translateY(50px); transition:all 0.8s ease; position:relative; box-shadow:0 12px 30px rgba(0,0,0,0.35); border:2px solid #2a9d8f; background:linear-gradient(135deg,#2a9d8f,#1b5f4f);}
+.step.visible{opacity:1; transform:translateY(0);}
+.step-number{font-size:32px;font-weight:bold;margin-bottom:20px;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,0.35);}
+li{margin:10px 0;position:relative;padding-left:32px;cursor:pointer;transition: transform 0.2s;}
+li:hover{transform:scale(1.05);}
+li::before{content:"✅";position:absolute;left:0;opacity:0;transform:scale(0);transition:all 0.3s ease;}
+li.completed::before{opacity:1;transform:scale(1);}
 
-/* Back to Top Button */
-#back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #2a9d8f;
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    display: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s, background 0.3s;
-    z-index: 999;
-}
-#back-to-top:hover { transform: scale(1.1); background-color: #1f7c6e; }
+/* WhatsApp Button */
+.whatsapp-btn{display:block;width:100%;text-align:center;margin:25px 0;padding:22px 0;background-color:#25D366;color:#fff;font-size:24px;font-weight:bold;text-decoration:none;border-radius:25px;transition:all 0.3s;box-shadow:0 7px 20px rgba(0,0,0,0.3);}
+.whatsapp-btn:hover{background-color:#1ebe5d; transform:scale(1.05);}
+
+/* Back-to-top & Theme Toggle */
+#back-to-top, #theme-toggle{position:fixed;padding:16px 22px;border-radius:50px;font-weight:bold;cursor:pointer;z-index:999; transition:all 0.3s; box-shadow:0 7px 20px rgba(0,0,0,0.3);}
+#back-to-top{bottom:30px; right:30px; background:#2a9d8f; color:#fff; display:none;}
+#back-to-top:hover{transform:scale(1.1);background:#1f7c6e;}
+#theme-toggle{bottom:30px; left:30px; background:#2a9d8f; color:#fff;}
+#theme-toggle:hover{transform:scale(1.1);background:#1f7c6e;}
+
+/* Progress Bar */
+.progress-container{background:#dcdcdc;border-radius:15px;overflow:hidden;margin:30px 0;}
+.progress-bar{height:18px;width:0;background:#2a9d8f;transition:width 0.5s; border-radius:15px;}
+
+/* Testimonials */
+.testimonial{background:#f4f4f4;padding:30px;border-radius:20px;margin:25px 0;box-shadow:0 6px 25px rgba(0,0,0,0.18);opacity:0;transform:translateX(-50px);transition:all 0.8s;text-align:center;font-style:italic;font-size:19px; color:#333;}
+.testimonial.visible{opacity:1;transform:translateX(0);}
+
+/* Confetti */
+#confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none; z-index:1000;}
+
+/* VIP Streak Dashboard */
+#vip-streak{position:fixed;top:100px; right:30px; background:linear-gradient(135deg,#FFD700,#FFA500); color:#fff; padding:18px 28px; border-radius:50px; font-weight:bold; font-size:20px; box-shadow:0 7px 25px rgba(0,0,0,0.4); z-index:999; opacity:0; transition:all 0.5s;}
+#vip-notif{position:fixed;top:180px; right:30px; background:#ffdd57; color:#000; padding:14px 28px; border-radius:50px; font-weight:bold; font-size:18px; box-shadow:0 7px 25px rgba(0,0,0,0.4); opacity:0; z-index:1000; transition:all 0.5s;}
+#vip-dashboard{position:fixed;top:280px; right:30px; width:280px; background:linear-gradient(135deg,#1abc9c,#16a085); color:#fff; padding:25px; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.35); font-weight:bold; z-index:998;}
+#vip-dashboard h3{margin-top:0; text-align:center; color:#fff; text-shadow:0 3px 8px rgba(0,0,0,0.5);}
+
+/* VIP Tier Cards */
+.vip-tier{margin:15px 0;padding:15px;border-radius:15px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:2px solid #fff;display:flex;justify-content:space-between;align-items:center;transition:transform 0.3s;}
+.vip-tier:hover{transform:scale(1.05);}
+.vip-tier span{font-weight:bold; font-size:16px; color:#fff;}
+
+/* Dark Mode */
+body.dark{background:#1e1e2f;color:#f0f0f0;}
+body.dark .container{background:#2a2a3d;}
+body.dark .nav-steps{background:#2a2a3d; box-shadow:none;}
+body.dark .step{border-color:#128c7e;}
+body.dark .whatsapp-btn{background-color:#128c7e;}
+body.dark #back-to-top, body.dark #theme-toggle, body.dark #vip-streak, body.dark #vip-dashboard{background:#128c7e;}
+
+/* VIP Pulse */
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+.pulse{animation:pulse 0.8s ease;}
 </style>
 </head>
 <body>
+
 <div class="container">
-    <div class="vip-badge">🌟 VIP PREMIUM 🌟</div>
+    <div class="vip-badge">🌟 ULTRA VIP 🌟</div>
     <h1>Elite VIP Fixed Odds Registration</h1>
     <p>We deal with VIP fixed odds correct scores of <strong>359 odds and above</strong>. Complete the registration fee of <strong>20,000 UGX</strong> by following the steps below:</p>
 
-    <!-- Navigation Steps -->
+    <div id="countdown">⏳ 00:15:32 left for next VIP registration</div>
+
     <div class="nav-steps">
         <button class="nav-step1" onclick="scrollToStep('step1')">Step 1</button>
         <button class="nav-step2" onclick="scrollToStep('step2')">Step 2</button>
-        <button class="nav-step3" onclick="scrollToStep('step3')">Step 3</button>
     </div>
 
-    <!-- Step 1 -->
     <div class="step step1" id="step1">
         <div class="step-number">1</div>
         <div class="step-content">
@@ -171,7 +97,7 @@ footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
             <ul>
                 <li>Dial *165#</li>
                 <li>Send money</li>
-                <li>Select Africa countries → East Africa → Kenya</li>
+                <li>Select Africa → East Africa → Kenya</li>
                 <li>Safaricom MPESA</li>
                 <li>Number: 254711949382</li>
                 <li>Amount: 20,000 UGX</li>
@@ -181,7 +107,6 @@ footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
         </div>
     </div>
 
-    <!-- Step 2 -->
     <div class="step step2" id="step2">
         <div class="step-number">2</div>
         <div class="step-content">
@@ -192,93 +117,118 @@ footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
         </div>
     </div>
 
-    <!-- Step 3 -->
-    <div class="step step3" id="step3">
-        <div class="step-number">3</div>
-        <div class="step-content">
-            <h2>📝 Payment Confirmation</h2>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDyourgoogleformlink/viewform?embedded=true">Loading…</iframe>
-        </div>
-    </div>
+    <div class="testimonial">“I joined Elite VIP and won my first 3 bets! Highly recommended.” – John K.</div>
+    <div class="testimonial">“The fixed odds are legit. Easy payment via WhatsApp. Ultra VIP experience!” – Mary L.</div>
 
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-    </div>
+    <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
 
-    <footer>
-        &copy; 2025 Elite VIP Registration. All rights reserved.
-    </footer>
+    <footer>&copy; 2025 Elite VIP Registration. All rights reserved.</footer>
 </div>
 
-<!-- VIP Popup -->
-<div id="vip-popup">🎉 Congratulations VIP! 🎉</div>
+<div id="vip-streak">VIP Status: Bronze 🥉</div>
+<div id="vip-notif"></div>
+<div id="vip-dashboard">
+    <h3>VIP Dashboard</h3>
+    <p>Current Level: <span id="vip-level">Bronze 🥉</span></p>
+    <p>Current Streak: <span id="vip-streak-count">1 Day</span></p>
+    <p>Completed Steps: <span id="completed-steps">0/2</span></p>
+    <p>Achievements:</p>
+    <ul id="vip-achievements"></ul>
 
-<!-- Back to Top Button -->
+    <div class="vip-tier"><span>Bronze 🥉</span><span>0-1 Day</span></div>
+    <div class="vip-tier"><span>Silver 🥈</span><span>2 Days</span></div>
+    <div class="vip-tier"><span>Gold 🥇</span><span>3 Days</span></div>
+    <div class="vip-tier"><span>Platinum 💎</span><span>5 Days</span></div>
+    <div class="vip-tier"><span>Diamond 🔷</span><span>7+ Days</span></div>
+</div>
+
+<canvas id="confetti-canvas"></canvas>
 <div id="back-to-top" onclick="scrollToTop()">⬆ Back to Top</div>
+<div id="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</div>
+<audio id="chime-sound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 
 <script>
-// Smooth scroll to step
-function scrollToStep(stepId) {
-    const step = document.getElementById(stepId);
-    step.scrollIntoView({behavior: "smooth", block: "center"});
-}
+// Smooth scroll & theme
+function scrollToStep(id){document.getElementById(id).scrollIntoView({behavior:"smooth", block:"center"});}
+function scrollToTop(){window.scrollTo({top:0, behavior:"smooth"});}
+function toggleTheme(){document.body.classList.toggle('dark');}
 
-// Scroll to top function
-function scrollToTop() {
-    window.scrollTo({top: 0, behavior: "smooth"});
-}
+// Confetti
+function createConfetti(){const canvas=document.getElementById('confetti-canvas');const ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const confetti=[];for(let i=0;i<200;i++){confetti.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*6+4,d:Math.random()*50});}function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);confetti.forEach(f=>{ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,Math.PI*2);ctx.fillStyle=`hsl(${Math.random()*360},100%,50%)`;ctx.fill();f.y+=Math.cos(f.d)+1+f.r/2;f.x+=Math.sin(f.d);if(f.y>canvas.height){f.y=0;f.x=Math.random()*canvas.width;}});requestAnimationFrame(draw);}draw();}
 
-// Show back-to-top button when scrolling
-window.addEventListener('scroll', () => {
-    const btn = document.getElementById('back-to-top');
-    if(window.scrollY > 300) btn.style.display = 'block';
-    else btn.style.display = 'none';
-});
-
-// Animate progress bar and checkmarks
+// Persistent VIP Data
+let completedSteps=0, vipLevel='Bronze 🥉', streakCount=1, achievements=[];
 window.addEventListener('load', () => {
-    const progressBar = document.getElementById('progress-bar');
-    let progress = 0;
-    const interval = setInterval(() => {
-        if(progress >= 100) clearInterval(interval);
-        progress += 1;
-        progressBar.style.width = progress + '%';
-    }, 15);
+    const savedSteps = localStorage.getItem('completedSteps');
+    const savedLevel = localStorage.getItem('vipLevel');
+    const savedStreak = localStorage.getItem('streakCount');
+    const savedAchievements = localStorage.getItem('achievements');
 
-    const listItems = document.querySelectorAll('li');
-    listItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.classList.add('completed');
-            if(listItems[index+1]) {
-                listItems[index+1].scrollIntoView({behavior: "smooth", block: "center"});
-            }
-        }, 500 + index*800);
-    });
+    if(savedSteps) completedSteps = parseInt(savedSteps);
+    if(savedLevel) vipLevel = savedLevel;
+    if(savedStreak) streakCount = parseInt(savedStreak);
+    if(savedAchievements) achievements.push(...JSON.parse(savedAchievements));
 
-    // Animate steps on scroll
-    const steps = document.querySelectorAll('.step');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {threshold: 0.2});
-
-    steps.forEach(step => observer.observe(step));
+    updateDashboard();
+    document.getElementById('vip-streak').style.opacity = 1;
+    document.getElementById('vip-streak').innerText = 'VIP Status: ' + vipLevel;
 });
 
-// VIP popup when WhatsApp button clicked
-const whatsappBtn = document.getElementById('whatsapp-btn');
-const vipPopup = document.getElementById('vip-popup');
+// Save VIP data
+function saveVIPData(){
+    localStorage.setItem('completedSteps', completedSteps);
+    localStorage.setItem('vipLevel', vipLevel);
+    localStorage.setItem('streakCount', streakCount);
+    localStorage.setItem('achievements', JSON.stringify(achievements));
+}
 
-whatsappBtn.addEventListener('click', () => {
-    vipPopup.classList.add('show');
-    setTimeout(() => {
-        vipPopup.classList.remove('show');
-    }, 2500);
+// Update dashboard
+function updateDashboard(){
+    document.getElementById('vip-level').innerText = vipLevel;
+    document.getElementById('vip-streak-count').innerText = streakCount + ' Day' + (streakCount>1?'s':'');
+    document.getElementById('completed-steps').innerText = completedSteps + '/2';
+    const ul=document.getElementById('vip-achievements'); ul.innerHTML='';
+    achievements.forEach(a=>{let li=document.createElement('li');li.innerText=a;ul.appendChild(li);});
+}
+
+// VIP Badge & Notification
+function showVipBadge(step){
+    completedSteps = step;
+    if(step===1){vipLevel='Bronze 🥉';achievements.push('Step 1 Completed');showVipNotif('Step 1 Completed: Bronze 🥉');}
+    else if(step===2){vipLevel='Silver 🥈';achievements.push('Step 2 Completed');showVipNotif('Step 2 Completed: Silver 🥈');}
+
+    streakCount++;
+    updateDashboard();
+    saveVIPData();
+    playChime();
+    createConfetti();
+    const badge=document.getElementById('vip-streak');
+    badge.innerText='VIP Status: '+vipLevel;
+    badge.classList.add('pulse');
+    setTimeout(()=>{badge.classList.remove('pulse');},2000);
+}
+
+// VIP notification
+function showVipNotif(msg){const notif=document.getElementById('vip-notif');notif.innerText=msg;notif.style.opacity=1; setTimeout(()=>{notif.style.opacity=0;},2500);}
+function playChime(){document.getElementById('chime-sound').play();}
+
+// Animate steps & testimonials
+window.addEventListener('load',()=>{
+    const steps=document.querySelectorAll('.step');
+    const testimonials=document.querySelectorAll('.testimonial');
+    const observer=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');showVipBadge(Array.from(steps).indexOf(e.target)+1);}}},{threshold:0.4});
+    steps.forEach(step=>observer.observe(step));
+    testimonials.forEach(t=>observer.observe(t));
+
+    // Progress bar animation
+    const progressBar=document.getElementById('progress-bar');let progress=0;
+    const interval=setInterval(()=>{if(progress>=100)clearInterval(interval);progress+=1;progressBar.style.width=progress+'%';},15);
+
+    // Mark steps completed visually
+    const listItems=document.querySelectorAll('li');
+    listItems.forEach((item,index)=>{setTimeout(()=>{item.classList.add('completed');},500+index*500);});
 });
-</script>
-</body>
-</html>
+
+// Back-to-top
+window.addEventListener('scroll',()=>{document.getElementById('back-to-top').style.display=(window
