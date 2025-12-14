@@ -1,70 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite VIP Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h2 {
-            text-align: center;
-            color: #2a9d8f;
-        }
-        h3 {
-            color: #264653;
-        }
-        ul {
-            margin-left: 20px;
-        }
-        a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #e76f51;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background-color: #f4a261;
-        }
-        p, li {
-            font-size: 16px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite VIP Registration</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+h1 { text-align: center; color: #2a9d8f; margin-bottom: 10px; font-size: 32px; }
+.vip-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFD700, #FFC700);
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+.nav-steps {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.nav-steps button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.3s;
+}
+.nav-steps button:hover {
+    transform: scale(1.1);
+}
+.nav-step1 { background-color: #2a9d8f; color: #fff; }
+.nav-step2 { background-color: #e76f51; color: #fff; }
+.nav-step3 { background-color: #264653; color: #fff; }
+
+h2 { margin-top: 0; }
+p { font-size: 16px; margin: 10px 0; }
+.step {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #fff;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+.step.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.step-number { font-size: 26px; font-weight: bold; margin-right: 15px; }
+.step-content { flex: 1; }
+.step1 { background-color: #2a9d8f; }
+.step2 { background-color: #e76f51; }
+.step3 { background-color: #264653; }
+ul { margin: 10px 0 0 20px; padding: 0; }
+li { margin: 5px 0; position: relative; padding-left: 25px; cursor: pointer; }
+li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+li.completed::before { opacity: 1; transform: scale(1); }
+.whatsapp-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    padding: 18px 0;
+    background-color: #25D366;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: transform 0.2s, background 0.3s;
+}
+.whatsapp-btn:hover { background-color: #1ebe5d; transform: scale(1.05); }
+.progress-container { background-color: #dcdcdc; border-radius: 12px; overflow: hidden; margin: 30px 0; }
+.progress-bar { height: 14px; width: 0; background-color: #2a9d8f; transition: width 0.5s; }
+iframe { width: 100%; height: 500px; border: none; margin-top: 20px; border-radius: 10px; }
+footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
+
+/* Popup Styles */
+#vip-popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFD700;
+    color: #333;
+    padding: 25px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 1000;
+    text-align: center;
+}
+#vip-popup.show { display: block; animation: popup 0.5s ease forwards; }
+@keyframes popup {
+    0% { transform: translate(-50%, -60%) scale(0.5); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #2a9d8f;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.3s;
+    z-index: 999;
+}
+#back-to-top:hover { transform: scale(1.1); background-color: #1f7c6e; }
+</style>
 </head>
 <body>
-    <h2>Elite VIP Fixed Odds Registration</h2>
+<div class="container">
+    <div class="vip-badge">🌟 VIP PREMIUM 🌟</div>
+    <h1>Elite VIP Fixed Odds Registration</h1>
+    <p>We deal with VIP fixed odds correct scores of <strong>359 odds and above</strong>. Complete the registration fee of <strong>20,000 UGX</strong> by following the steps below:</p>
 
-    <p>Here I deal with fixed VIP odds correct scores of 359 odds and above. If interested, make the registration fee of only 20,000 UGX by following the steps below:</p>
+    <!-- Navigation Steps -->
+    <div class="nav-steps">
+        <button class="nav-step1" onclick="scrollToStep('step1')">Step 1</button>
+        <button class="nav-step2" onclick="scrollToStep('step2')">Step 2</button>
+        <button class="nav-step3" onclick="scrollToStep('step3')">Step 3</button>
+    </div>
 
-    <h3>UGANDA MTN DETAILS ✅</h3>
-    <p>*Sending to mpesa Kenya*</p>
-    <ul>
-        <li>Dial *165#</li>
-        <li>Send money</li>
-        <li>Africa countries</li>
-        <li>East Africa</li>
-        <li>Kenya ✅</li>
-        <li>Safaricom mpesa ✅</li>
-        <li>Number: 254711949382</li>
-        <li>Amount: 20,000 UGX</li>
-        <li>Pin and send</li>
-    </ul>
+    <!-- Step 1 -->
+    <div class="step step1" id="step1">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <h2>💰 Payment Instructions</h2>
+            <ul>
+                <li>Dial *165#</li>
+                <li>Send money</li>
+                <li>Select Africa countries → East Africa → Kenya</li>
+                <li>Safaricom MPESA</li>
+                <li>Number: 254711949382</li>
+                <li>Amount: 20,000 UGX</li>
+                <li>Enter PIN and send</li>
+            </ul>
+            <p><strong>Payee Name:</strong> BRIAN K.</p>
+        </div>
+    </div>
 
-    <p><strong>NAME:</strong> BRIAN K.</p>
-    <p>Congratulations 🎊 Payment successfully made ✅✅</p>
+    <!-- Step 2 -->
+    <div class="step step2" id="step2">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <h2>📱 Contact via WhatsApp</h2>
+            <a class="whatsapp-btn" id="whatsapp-btn" href="https://wa.me/254113206503?text=Hello%2C%20I%20want%20to%20register%20for%20Elite%20VIP%20Guaranteed%20Matches" target="_blank">
+                Send WhatsApp Message
+            </a>
+        </div>
+    </div>
 
-    <a href="https://wa.me/254711949382?text=Hello%20I%20want%20to%20register%20for%20Elite%20Guaranteed%20Matches" target="_blank">
-        Click here to send message on WhatsApp
-    </a>
+    <!-- Step 3 -->
+    <div class="step step3" id="step3">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <h2>📝 Payment Confirmation</h2>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDyourgoogleformlink/viewform?embedded=true">Loading…</iframe>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <footer>
+        &copy; 2025 Elite VIP Registration. All rights reserved.
+    </footer>
+</div>
+
+<!-- VIP Popup -->
+<div id="vip-popup">🎉 Congratulations VIP! 🎉</div>
+
+<!-- Back to Top Button -->
+<div id="back-to-top" onclick="scrollToTop()">⬆ Back to Top</div>
+
+<script>
+// Smooth scroll to step
+function scrollToStep(stepId) {
+    const step = document.getElementById(stepId);
+    step.scrollIntoView({behavior: "smooth", block: "center"});
+}
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+// Show back-to-top button when scrolling
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('back-to-top');
+    if(window.scrollY > 300) btn.style.display = 'block';
+    else btn.style.display = 'none';
+});
+
+// Animate progress bar and checkmarks
+window.addEventListener('load', () => {
+    const progressBar = document.getElementById('progress-bar');
+    let progress = 0;
+    const interval = setInterval(() => {
+        if(progress >= 100) clearInterval(interval);
+        progress += 1;
+        progressBar.style.width = progress + '%';
+    }, 15);
+
+    const listItems = document.querySelectorAll('li');
+    listItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('completed');
+            if(listItems[index+1]) {
+                listItems[index+1].scrollIntoView({behavior: "smooth", block: "center"});
+            }
+        }, 500 + index*800);
+    });
+
+    // Animate steps on scroll
+    const steps = document.querySelectorAll('.step');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {threshold: 0.2});
+
+    steps.forEach(step => observer.observe(step));
+});
+
+// VIP popup when WhatsApp button clicked
+const whatsappBtn = document.getElementById('whatsapp-btn');
+const vipPopup = document.getElementById('vip-popup');
+
+whatsappBtn.addEventListener('click', () => {
+    vipPopup.classList.add('show');
+    setTimeout(() => {
+        vipPopup.classList.remove('show');
+    }, 2500);
+});
+</script>
 </body>
 </html>
