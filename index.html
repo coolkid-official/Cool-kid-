@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elite VIP Ultra-Premium Registration</title>
 <meta name="description" content="Join Elite VIP Fixed Odds Registration – 359+ Odds Guaranteed. Contact +254113206503 on WhatsApp for registration.">
-
 <style>
 /* Base */
 body, html {margin:0; padding:0; font-family:'Arial', sans-serif; scroll-behavior:smooth; background: linear-gradient(-45deg,#f0f4f8,#d9e2ec,#cde1f2,#e2f0fc); background-size:400% 400%; animation:gradient 20s ease infinite; color:#333;}
@@ -22,8 +21,7 @@ h1{text-align:center;font-size:36px;color:#2a9d8f;margin-bottom:15px;text-transf
 /* Steps */
 .step{display:flex;flex-direction:column;border-radius:20px;padding:30px;margin:20px 0;opacity:0;transform:translateY(50px);transition:all 0.7s ease;position:relative;box-shadow:0 10px 25px rgba(0,0,0,0.3);border:2px solid #2a9d8f;background:linear-gradient(135deg,#2a9d8f,#1b5f4f);}
 .step.visible{opacity:1;transform:translateY(0);}
-.step-number{font-size:28px;font-weight:bold;margin-bottom:15px;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,0.35);}
-.step-content img{display:block;margin:0 auto 15px; max-width:80px;}
+.step-number{font-size:28px;font-weight:bold;margin-bottom:20px;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,0.35);}
 li{margin:10px 0;position:relative;padding-left:30px;cursor:pointer;transition: transform 0.2s;}
 li:hover{transform:scale(1.05);}
 li::before{content:"✅";position:absolute;left:0;opacity:0;transform:scale(0);transition:all 0.3s ease;}
@@ -66,9 +64,6 @@ body.dark #back-to-top,#theme-toggle{background:#128c7e;}
 <body>
 
 <div class="container">
-  <!-- Header Image -->
-  <img src="https://i.ibb.co/2F0wG5m/elite-vip-banner.jpg" alt="Elite VIP Banner" style="width:100%; max-width:700px; display:block; margin:0 auto 20px; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
-
   <div class="vip-badge">🌟 ULTRA VIP 🌟</div>
   <h1>Elite VIP Fixed Odds Registration</h1>
   <p>We deal with VIP fixed odds correct scores of <strong>359 odds and above</strong>. Complete the registration fee of <strong>20,000 UGX</strong> by following the steps below:</p>
@@ -78,11 +73,9 @@ body.dark #back-to-top,#theme-toggle{background:#128c7e;}
     <button class="nav-step2" onclick="scrollToStep('step2')">Step 2</button>
   </div>
 
-  <!-- Step 1 with icon -->
   <div class="step step1" id="step1">
     <div class="step-number">1</div>
     <div class="step-content">
-      <img src="https://i.ibb.co/8m7yV7K/payment-icon.png" alt="Payment Icon">
       <h2>💰 Payment Instructions</h2>
       <ul>
         <li>Dial *165#</li>
@@ -97,11 +90,9 @@ body.dark #back-to-top,#theme-toggle{background:#128c7e;}
     </div>
   </div>
 
-  <!-- Step 2 with icon -->
   <div class="step step2" id="step2">
     <div class="step-number">2</div>
     <div class="step-content">
-      <img src="https://i.ibb.co/YPJY5Ly/whatsapp-icon.png" alt="WhatsApp Icon">
       <h2>📱 Contact via WhatsApp</h2>
       <a class="whatsapp-btn" href="https://wa.me/254113206503?text=Hello%2C%20I%20want%20to%20register%20for%20Elite%20VIP%20Guaranteed%20Matches" target="_blank">
         Send WhatsApp Message
@@ -122,10 +113,12 @@ body.dark #back-to-top,#theme-toggle{background:#128c7e;}
 <audio id="chime-sound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 
 <script>
+/* Utilities */
 function scrollToStep(id){document.getElementById(id).scrollIntoView({behavior:"smooth", block:"center"});}
 function scrollToTop(){window.scrollTo({top:0, behavior:"smooth"});}
 function toggleTheme(){document.body.classList.toggle('dark');}
 
+/* Confetti */
 function createConfetti(){
   const canvas=document.getElementById('confetti-canvas');
   const ctx=canvas.getContext('2d');
@@ -135,6 +128,7 @@ function createConfetti(){
   draw();
 }
 
+/* Progress bar animation */
 window.addEventListener('load',()=>{
   const progressBar=document.getElementById('progress-bar');let progress=0;
   const interval=setInterval(()=>{if(progress>=100)clearInterval(interval);progress+=1;progressBar.style.width=progress+'%';},15);
@@ -150,6 +144,7 @@ window.addEventListener('load',()=>{
   testimonials.forEach(t=>observer.observe(t));
 });
 
+/* Back-to-top button */
 window.addEventListener('scroll', () => {
   const btn=document.getElementById('back-to-top');
   btn.style.display=(window.scrollY>200)?'block':'none';
