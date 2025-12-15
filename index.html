@@ -7,21 +7,16 @@
 <meta name="description" content="Join Elite VIP Fixed Odds Registration – 359+ Odds Guaranteed. Contact +254113206503 on WhatsApp for registration.">
 
 <style>
-/* Base */
 body, html {margin:0; padding:0; font-family:'Arial', sans-serif; scroll-behavior:smooth; background: linear-gradient(-45deg,#f0f4f8,#d9e2ec,#cde1f2,#e2f0fc); background-size:400% 400%; animation:gradient 20s ease infinite; color:#333;}
 @keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .container{max-width:900px;margin:30px auto;padding:30px;background:#fff;border-radius:20px;box-shadow:0 12px 35px rgba(0,0,0,0.25);}
 h1{text-align:center;font-size:38px;color:#2a9d8f;margin-bottom:10px; text-transform: uppercase; letter-spacing:1px;}
 .vip-badge{display:inline-block;background: linear-gradient(135deg,#FFD700,#FFC700); color:#fff; font-weight:bold; font-size:20px; padding:12px 30px; border-radius:60px; box-shadow:0 5px 20px rgba(0,0,0,0.4); margin-bottom:25px;}
-
-/* Navigation Steps */
 .nav-steps{display:flex;justify-content:space-around;margin-bottom:20px;position: sticky; top:0; background:#fff; padding:15px 0; z-index:100; box-shadow:0 5px 25px rgba(0,0,0,0.15); border-radius:15px;}
 .nav-steps button{padding:15px 30px; border:none; border-radius:60px; cursor:pointer; font-weight:bold; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.2);}
 .nav-steps button:hover{transform:scale(1.1);}
 .nav-step1{background-color:#2a9d8f;color:#fff;}
 .nav-step2{background-color:#e76f51;color:#fff;}
-
-/* Steps */
 .step{display:flex; flex-direction:column;border-radius:20px;padding:35px;margin:25px 0;color:#fff;opacity:0; transform:translateY(50px); transition:all 0.8s ease; position:relative; box-shadow:0 12px 30px rgba(0,0,0,0.35); border:2px solid #2a9d8f; background:linear-gradient(135deg,#2a9d8f,#1b5f4f);}
 .step.visible{opacity:1; transform:translateY(0);}
 .step-number{font-size:32px;font-weight:bold;margin-bottom:20px;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,0.35);}
@@ -29,49 +24,31 @@ li{margin:10px 0;position:relative;padding-left:32px;cursor:pointer;transition: 
 li:hover{transform:scale(1.05);}
 li::before{content:"✅";position:absolute;left:0;opacity:0;transform:scale(0);transition:all 0.3s ease;}
 li.completed::before{opacity:1;transform:scale(1);}
-
-/* WhatsApp Button */
 .whatsapp-btn{display:block;width:100%;text-align:center;margin:25px 0;padding:22px 0;background-color:#25D366;color:#fff;font-size:24px;font-weight:bold;text-decoration:none;border-radius:25px;transition:all 0.3s;box-shadow:0 7px 20px rgba(0,0,0,0.3);}
 .whatsapp-btn:hover{background-color:#1ebe5d; transform:scale(1.05);}
-
-/* Back-to-top & Theme Toggle */
 #back-to-top, #theme-toggle{position:fixed;padding:16px 22px;border-radius:50px;font-weight:bold;cursor:pointer;z-index:999; transition:all 0.3s; box-shadow:0 7px 20px rgba(0,0,0,0.3);}
 #back-to-top{bottom:30px; right:30px; background:#2a9d8f; color:#fff; display:none;}
 #back-to-top:hover{transform:scale(1.1);background:#1f7c6e;}
 #theme-toggle{bottom:30px; left:30px; background:#2a9d8f; color:#fff;}
 #theme-toggle:hover{transform:scale(1.1);background:#1f7c6e;}
-
-/* Progress Bar */
 .progress-container{background:#dcdcdc;border-radius:15px;overflow:hidden;margin:30px 0;}
 .progress-bar{height:18px;width:0;background:#2a9d8f;transition:width 0.5s; border-radius:15px;}
-
-/* Testimonials */
 .testimonial{background:#f4f4f4;padding:30px;border-radius:20px;margin:25px 0;box-shadow:0 6px 25px rgba(0,0,0,0.18);opacity:0;transform:translateX(-50px);transition:all 0.8s;text-align:center;font-style:italic;font-size:19px; color:#333;}
 .testimonial.visible{opacity:1;transform:translateX(0);}
-
-/* Confetti */
 #confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none; z-index:1000;}
-
-/* VIP Streak Dashboard */
 #vip-streak{position:fixed;top:100px; right:30px; background:linear-gradient(135deg,#FFD700,#FFA500); color:#fff; padding:18px 28px; border-radius:50px; font-weight:bold; font-size:20px; box-shadow:0 7px 25px rgba(0,0,0,0.4); z-index:999; opacity:0; transition:all 0.5s;}
 #vip-notif{position:fixed;top:180px; right:30px; background:#ffdd57; color:#000; padding:14px 28px; border-radius:50px; font-weight:bold; font-size:18px; box-shadow:0 7px 25px rgba(0,0,0,0.4); opacity:0; z-index:1000; transition:all 0.5s;}
 #vip-dashboard{position:fixed;top:280px; right:30px; width:280px; background:linear-gradient(135deg,#1abc9c,#16a085); color:#fff; padding:25px; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.35); font-weight:bold; z-index:998;}
 #vip-dashboard h3{margin-top:0; text-align:center; color:#fff; text-shadow:0 3px 8px rgba(0,0,0,0.5);}
-
-/* VIP Tier Cards */
 .vip-tier{margin:15px 0;padding:15px;border-radius:15px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:2px solid #fff;display:flex;justify-content:space-between;align-items:center;transition:transform 0.3s;}
 .vip-tier:hover{transform:scale(1.05);}
 .vip-tier span{font-weight:bold; font-size:16px; color:#fff;}
-
-/* Dark Mode */
 body.dark{background:#1e1e2f;color:#f0f0f0;}
 body.dark .container{background:#2a2a3d;}
 body.dark .nav-steps{background:#2a2a3d; box-shadow:none;}
 body.dark .step{border-color:#128c7e;}
 body.dark .whatsapp-btn{background-color:#128c7e;}
 body.dark #back-to-top, body.dark #theme-toggle, body.dark #vip-streak, body.dark #vip-dashboard{background:#128c7e;}
-
-/* VIP Pulse */
 @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
 .pulse{animation:pulse 0.8s ease;}
 </style>
@@ -82,8 +59,6 @@ body.dark #back-to-top, body.dark #theme-toggle, body.dark #vip-streak, body.dar
     <div class="vip-badge">🌟 ULTRA VIP 🌟</div>
     <h1>Elite VIP Fixed Odds Registration</h1>
     <p>We deal with VIP fixed odds correct scores of <strong>359 odds and above</strong>. Complete the registration fee of <strong>20,000 UGX</strong> by following the steps below:</p>
-
-    <div id="countdown">⏳ 00:15:32 left for next VIP registration</div>
 
     <div class="nav-steps">
         <button class="nav-step1" onclick="scrollToStep('step1')">Step 1</button>
@@ -230,5 +205,16 @@ window.addEventListener('load',()=>{
     listItems.forEach((item,index)=>{setTimeout(()=>{item.classList.add('completed');},500+index*500);});
 });
 
-// Back-to-top
-window.addEventListener('scroll',()=>{document.getElementById('back-to-top').style.display=(window
+// Back-to-top button
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('back-to-top');
+    if (window.scrollY > 200) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>
